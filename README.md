@@ -5,8 +5,6 @@
 
 A Nova tool to manage application's translations. This package uses [novius/laravel-translation-loader](https://github.com/novius/laravel-translation-loader/).
 
-> **WARNING**: this package is currently in development.
-
 ## Requirements
 
 * PHP >= 7.2

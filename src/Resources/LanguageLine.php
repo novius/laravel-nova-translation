@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\KeyValue;
 use Laravel\Nova\Fields\Text;
+use Novius\LaravelNovaTranslation\Filters\Group;
 
 class LanguageLine extends Resource
 {
@@ -31,6 +32,7 @@ class LanguageLine extends Resource
      */
     public static $search = [
         'key',
+        'group',
         'text',
     ];
 
@@ -78,9 +80,11 @@ class LanguageLine extends Resource
                 return ($this->namespace === '*') ? '-' : $this->namespace;
             })->asHtml()->onlyOnIndex(),
 
-            Text::make(trans('laravel-nova-translation::translation.group'), 'group'),
+            Text::make(trans('laravel-nova-translation::translation.group'), 'group')
+                ->sortable(),
 
-            Text::make(trans('laravel-nova-translation::translation.key'), 'key'),
+            Text::make(trans('laravel-nova-translation::translation.key'), 'key')
+                ->sortable(),
 
             Text::make(trans('laravel-nova-translation::translation.translation'), function () {
                 $translations = '';
@@ -117,7 +121,9 @@ class LanguageLine extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            new Group(),
+        ];
     }
 
     /**

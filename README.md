@@ -11,12 +11,16 @@ A Nova tool to manage application's translations. This package uses [novius/lara
 * Laravel Nova >= 3.0
 * Laravel Framework >= 7.0
 
+> **NOTE**: These instructions are for Laravel 7.x and 8.x. If you are using prior version, please
+> see the [previous version's docs](https://github.com/novius/laravel-nova-translation/tree/1.x).
+
+
 ## Installation
 
 **Step 1 :**
 
 ```sh
-composer require novius/laravel-nova-translation:dev-master
+composer require novius/laravel-nova-translation
 ```
 
 **Step 2 :**

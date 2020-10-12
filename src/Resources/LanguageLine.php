@@ -98,7 +98,9 @@ class LanguageLine extends Resource
             KeyValue::make(trans('laravel-nova-translation::translation.translation'), 'text')
                 ->keyLabel(trans('laravel-nova-translation::translation.language'))
                 ->valueLabel(trans('laravel-nova-translation::translation.translation'))
-                ->actionText(trans('laravel-nova-translation::translation.add_lang')),
+                ->actionText(trans('laravel-nova-translation::translation.add_lang'))
+                ->disableEditingKeys()
+                ->disableDeletingRows(),
         ];
     }
 

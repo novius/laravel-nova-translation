@@ -10,11 +10,11 @@
   ],
   "license": "AGPL-3.0-or-later",
   "require": {
-    "php": ">=7.2.0",
-    "novius/laravel-translation-loader": "dev-master"
+    "php": ">=7.3.0",
+    "novius/laravel-translation-loader": "dev-dev"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "~2.15.0"
+    "friendsofphp/php-cs-fixer": "~v2.16.4"
   },
   "autoload": {
     "psr-4": {

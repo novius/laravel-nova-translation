@@ -11,7 +11,7 @@
   "license": "AGPL-3.0-or-later",
   "require": {
     "php": ">=7.3.0",
-    "novius/laravel-translation-loader": "dev-dev"
+    "novius/laravel-translation-loader": "~2.0.0"
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "~v2.16.4"
@@ -32,12 +32,6 @@
     "lint": [
       "php-cs-fixer fix --config .php_cs -vv --diff --allow-risky=yes --dry-run"
     ]
-  },
-  "repositories": {
-    "novius/laravel-translation-loader": {
-      "type": "vcs",
-      "url": "git@github.com:novius/laravel-translation-loader.git"
-    }
   },
   "config": {
     "sort-packages": true

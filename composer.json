@@ -11,7 +11,7 @@
   "license": "AGPL-3.0-or-later",
   "require": {
     "php": ">=7.2.0",
-    "novius/laravel-translation-loader": "dev-master"
+    "novius/laravel-translation-loader": "^1.0.0"
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "~2.15.0"

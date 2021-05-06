@@ -7,7 +7,7 @@ A Nova tool to manage application's translations. This package uses [novius/lara
 
 ## Requirements
 
-* PHP >= 7.3
+* PHP >= 8.0
 * Laravel Nova >= 3.0
 * Laravel Framework >= 7.0
 

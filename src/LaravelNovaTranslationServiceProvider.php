@@ -26,7 +26,7 @@ class LaravelNovaTranslationServiceProvider extends ServiceProvider
         $this->publishes([$packageDir.'/config' => config_path()], 'config');
 
         $this->loadTranslationsFrom($packageDir.'/resources/lang', 'laravel-nova-translation');
-        $this->publishes([__DIR__.'/../resources/lang' => resource_path('lang/vendor/laravel-nova-translation')], 'lang');
+        $this->publishes([__DIR__.'/../resources/lang' => lang_path('vendor/laravel-nova-translation')], 'lang');
     }
 
     /**

@@ -7,12 +7,12 @@ A Nova tool to manage application's translations. This package uses [novius/lara
 
 ## Requirements
 
-* PHP >= 8.0
-* Laravel Nova >= 3.0
-* Laravel Framework >= 7.0
+* PHP >= 8.1
+* Laravel Nova >= 4.0
+* Laravel Framework >= 9.0
 
-> **NOTE**: These instructions are for Laravel 7.x and 8.x. If you are using prior version, please
-> see the [previous version's docs](https://github.com/novius/laravel-nova-translation/tree/1.x).
+> **NOTE**: These instructions are for Laravel >= 9.0 and Laravel Nova >= 4.0 If you are using prior version, please
+> see the [previous version's docs](https://github.com/novius/laravel-nova-translation/tree/2.x).
 
 
 ## Installation

@@ -11,7 +11,7 @@
   "license": "AGPL-3.0-or-later",
   "require": {
     "php": ">=8.1",
-    "novius/laravel-translation-loader": "~3.0.0"
+    "novius/laravel-translation-loader": "dev-laravel10"
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^3.8.0"
@@ -36,6 +36,12 @@
   "config": {
     "sort-packages": true
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:felixgilles/laravel-translation-loader.git"
+    }
+  ],
   "minimum-stability": "dev",
   "prefer-stable": true
 }

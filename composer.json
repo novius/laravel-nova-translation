@@ -11,6 +11,7 @@
   "license": "AGPL-3.0-or-later",
   "require": {
     "php": ">=8.1",
+    "laravel/nova": "~4.0",
     "novius/laravel-translation-loader": "^3.1.0"
   },
   "require-dev": {

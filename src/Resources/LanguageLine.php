@@ -2,21 +2,25 @@
 
 namespace Novius\LaravelNovaTranslation\Resources;
 
-use App\Nova\Resource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\KeyValue;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Resource;
 use Novius\LaravelNovaTranslation\Filters\Group;
+use Novius\TranslationLoader\LanguageLine as LanguageLineModel;
 
 class LanguageLine extends Resource
 {
+    /** @var LanguageLineModel */
+    public $resource;
+
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \Novius\TranslationLoader\LanguageLine::class;
+    public static $model = LanguageLineModel::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -66,7 +70,6 @@ class LanguageLine extends Resource
     /**
      * Get the fields displayed by the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return array
      */
     public function fields(Request $request)
@@ -77,7 +80,7 @@ class LanguageLine extends Resource
             Text::make(trans('laravel-nova-translation::translation.namespace'), 'namespace')->hideFromIndex(),
 
             Text::make(trans('laravel-nova-translation::translation.namespace'), function () {
-                return ($this->namespace === '*') ? '-' : $this->namespace;
+                return ($this->resource?->namespace === '*') ? '-' : $this->resource->namespace;
             })->asHtml()->onlyOnIndex(),
 
             Text::make(trans('laravel-nova-translation::translation.group'), 'group')
@@ -88,7 +91,7 @@ class LanguageLine extends Resource
 
             Text::make(trans('laravel-nova-translation::translation.translation'), function () {
                 $translations = '';
-                foreach ($this->getTranslations() as $locale => $translation) {
+                foreach ($this->resource->getTranslations() as $locale => $translation) {
                     $translations .= "$locale : $translation<br>";
                 }
 
@@ -107,7 +110,6 @@ class LanguageLine extends Resource
     /**
      * Get the cards available for the request.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return array
      */
     public function cards(Request $request)
@@ -118,20 +120,18 @@ class LanguageLine extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return array
      */
     public function filters(Request $request)
     {
         return [
-            new Group(),
+            new Group,
         ];
     }
 
     /**
      * Get the lenses available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return array
      */
     public function lenses(Request $request)
@@ -142,7 +142,6 @@ class LanguageLine extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return array
      */
     public function actions(Request $request)

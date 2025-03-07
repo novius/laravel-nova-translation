@@ -49,8 +49,10 @@ jobs:
         include:
           - laravel: 12.*
             carbon: 3.*
+            larastan: 3.*
           - laravel: 11.*
             carbon: 2.*
+            larastan: 3.*
           - laravel: 10.*
             carbon: 2.*
             larastan: 2.*

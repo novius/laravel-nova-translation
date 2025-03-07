@@ -15,7 +15,6 @@
         "novius/laravel-translation-loader": "^3.2.1"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-latest",
         "larastan/larastan": "^3.1",
         "laravel/pint": "^v1.21.0"
     },

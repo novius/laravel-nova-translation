@@ -19,6 +19,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Login to Laravel Nova
+        run: composer config http-basic.nova.laravel.com ${NOVA_USERNAME} ${NOVA_LICENSE_KEY}
+        env:
+          NOVA_USERNAME: ${{ secrets.NOVA_USERNAME }}
+          NOVA_LICENSE_KEY: ${{ secrets.NOVA_LICENSE_KEY }}
+
       - name: Cache composer dependencies
         uses: actions/cache@v3
         with:
@@ -47,6 +53,7 @@ jobs:
             carbon: 2.*
           - laravel: 10.*
             carbon: 2.*
+            larastan: 2.*
         exclude:
           - laravel: 11.*
             php: 8.1
@@ -63,6 +70,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Login to Laravel Nova
+        run: composer config http-basic.nova.laravel.com ${NOVA_USERNAME} ${NOVA_LICENSE_KEY}
+        env:
+          NOVA_USERNAME: ${{ secrets.NOVA_USERNAME }}
+          NOVA_LICENSE_KEY: ${{ secrets.NOVA_LICENSE_KEY }}
+
       - name: Cache composer dependencies
         uses: actions/cache@v3
         with:
@@ -71,7 +84,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" "nesbot/carbon:${{ matrix.carbon }}" --no-interaction --no-update
+          composer require "laravel/framework:${{ matrix.laravel }}" "nesbot/carbon:${{ matrix.carbon }}" "larastan/larastan:${{ matrix.larastan }}" --no-interaction --no-update
           composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
 
       - name: PhPStan

@@ -15,7 +15,7 @@
         "novius/laravel-translation-loader": "^3.2.1"
     },
     "require-dev": {
-        "larastan/larastan": "^3.1",
+        "larastan/larastan": "^v2.9|^3.1",
         "laravel/pint": "^v1.21.0"
     },
     "autoload": {

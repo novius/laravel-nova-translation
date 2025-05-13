@@ -1,0 +1,35 @@
+<?php
+
+namespace Novius\LaravelNovaTranslation\Resources\Filters;
+
+use Illuminate\Contracts\Database\Eloquent\Builder;
+use Laravel\Nova\Filters\Filter;
+use Laravel\Nova\Http\Requests\NovaRequest;
+
+class Dirty extends Filter
+{
+    /**
+     * Apply the filter to the given query.
+     */
+    public function apply(NovaRequest $request, Builder $query, mixed $value)
+    {
+        if ($value === '*') {
+            return $query->whereNotNull('dirty_locales');
+        }
+
+        return $query->whereLike('dirty_locales', '%"'.$value.'"%');
+    }
+
+    public function options(NovaRequest $request): array
+    {
+        $locales = config('translation-loader.locales', []);
+        $options = collect($locales)->mapWithKeys(fn ($locale) => [$locale => $locale]);
+
+        if (count($locales) > 1) {
+            $options->prepend('*',
+                trans('laravel-nova-translation::translation.dirty_filter_one'));
+        }
+
+        return $options->toArray();
+    }
+}

@@ -17,7 +17,7 @@ class Dirty extends Filter
             return $query->whereNotNull('dirty_locales');
         }
 
-        return $query->whereLike('dirty_locales', '%"'.$value.'"%');
+        return $query->where('dirty_locales', 'LIKE', '%"'.$value.'"%');
     }
 
     public function options(NovaRequest $request): array

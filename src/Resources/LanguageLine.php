@@ -86,7 +86,7 @@ class LanguageLine extends Resource
             Text::make(trans('laravel-nova-translation::translation.translation'), function () {
                 $translations = '';
                 foreach ($this->resource->getTranslations() as $locale => $translation) {
-                    $translations .= $locale.' : '.Str::limit($translation, 50, preserveWords: true).'<br>';
+                    $translations .= $locale.' : '.Str::limit($translation, 50).'<br>';
                 }
 
                 return $translations;
@@ -96,7 +96,7 @@ class LanguageLine extends Resource
                 $translations = '';
                 foreach ($this->resource->getTranslations() as $locale => $translation) {
                     $translation = $this->resource->text_from_files[$locale] ?? '';
-                    $translations .= $locale.' : '.Str::limit($translation, 50, preserveWords: true).'<br>';
+                    $translations .= $locale.' : '.Str::limit($translation, 50).'<br>';
                 }
 
                 return $translations;

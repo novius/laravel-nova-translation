@@ -48,12 +48,15 @@ jobs:
         dependency-version: [ prefer-stable ]
         include:
           - laravel: 12.*
+            testbench: 10.*
             carbon: 3.*
             larastan: 3.*
           - laravel: 11.*
+            testbench: 9.*
             carbon: 2.*
             larastan: 3.*
           - laravel: 10.*
+            testbench: 8.*
             carbon: 2.*
             larastan: 2.*
         exclude:
@@ -86,7 +89,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" "nesbot/carbon:${{ matrix.carbon }}" "larastan/larastan:${{ matrix.larastan }}" --no-interaction --no-update
+          composer require "laravel/framework:${{ matrix.laravel }}" "nesbot/carbon:${{ matrix.carbon }}" "larastan/larastan:${{ matrix.larastan }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
           composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
 
       - name: PhPStan

@@ -10,6 +10,8 @@ use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\KeyValue;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Resource;
+use Novius\LaravelNovaTranslation\Resources\Actions\LanguageLineDbToFile;
+use Novius\LaravelNovaTranslation\Resources\Actions\LanguageLineFileToDb;
 use Novius\LaravelNovaTranslation\Resources\Filters\Dirty;
 use Novius\TranslationLoader\LanguageLine as LanguageLineModel;
 
@@ -138,6 +140,18 @@ class LanguageLine extends Resource
     {
         return [
             new Dirty,
+        ];
+    }
+
+    public function actions(Request $request): array
+    {
+        return [
+            LanguageLineDbToFile::make()
+                ->withName(trans('laravel-nova-translation::translation.db_to_file'))
+                ->onlyOnIndex(),
+            LanguageLineFileToDb::make()
+                ->withName(trans('laravel-nova-translation::translation.file_to_db'))
+                ->onlyOnIndex(),
         ];
     }
 }

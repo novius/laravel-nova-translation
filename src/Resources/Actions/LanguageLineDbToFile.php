@@ -19,7 +19,7 @@ class LanguageLineDbToFile extends Action
 
     public function handle(ActionFields $fields, Collection $models): ActionResponse
     {
-        $locales = $fields->array('locales');
+        $locales = $fields->get('locales');
         if (empty($locales)) {
             return Action::danger(trans('laravel-nova-translation::translation.no_locales'));
         }

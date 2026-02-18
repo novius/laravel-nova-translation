@@ -10,9 +10,9 @@
     ],
     "license": "AGPL-3.0-or-later",
     "require": {
-        "php": ">=8.1",
+        "php": ">=8.2",
         "laravel/nova": "~4.0|~5.0",
-        "novius/laravel-translation-loader": "dev-feature/dirty"
+        "novius/laravel-translation-loader": "^4.0.0"
     },
     "require-dev": {
         "larastan/larastan": "^v2.9|^3.1",

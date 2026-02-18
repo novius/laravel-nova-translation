@@ -9,16 +9,16 @@ use Laravel\Nova\Exceptions\HelperNotSupported;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\KeyValue;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Resource;
+use Laravel\Nova\Resource as NovaResource;
 use Novius\LaravelNovaTranslation\Resources\Actions\LanguageLineDbToFile;
 use Novius\LaravelNovaTranslation\Resources\Actions\LanguageLineFileToDb;
 use Novius\LaravelNovaTranslation\Resources\Filters\Dirty;
 use Novius\TranslationLoader\LanguageLine as LanguageLineModel;
 
 /**
- * @extends Resource<LanguageLineModel>
+ * @extends NovaResource<LanguageLineModel>
  */
-class LanguageLine extends Resource
+class LanguageLine extends NovaResource
 {
     /**
      * The model the resource corresponds to.

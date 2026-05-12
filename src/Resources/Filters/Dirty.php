@@ -9,9 +9,9 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 class Dirty extends Filter
 {
     /**
-     * Apply the filter to the given query.
+     * @param  Builder  $query
      */
-    public function apply(NovaRequest $request, Builder $query, mixed $value)
+    public function apply(NovaRequest $request, $query, mixed $value)
     {
         if ($value === '*') {
             return $query->whereNotNull('dirty_locales');

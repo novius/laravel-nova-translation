@@ -49,12 +49,19 @@ jobs:
           - laravel: 13.*
             carbon: 3.*
             testbench: 11.*
+            larastan: 3.*
           - laravel: 12.*
             carbon: 3.*
             testbench: 10.*
+            larastan: 3.*
           - laravel: 11.*
             carbon: 2.*
             testbench: 9.*
+            larastan: 3.*
+          - laravel: 10.*
+            carbon: 2.*
+            testbench: 8.*
+            larastan: 2.*
         exclude:
           - laravel: 13.*
             php-versions: '8.2'
@@ -97,7 +104,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" "nesbot/carbon:${{ matrix.carbon }}" "orchestra/testbench:${{ matrix.testbench }}" "laravel/nova:${{ matrix.nova }}" --no-interaction --no-update
+          composer require "laravel/framework:${{ matrix.laravel }}" "laravel/nova:${{ matrix.nova }}" "nesbot/carbon:${{ matrix.carbon }}" "orchestra/testbench:${{ matrix.testbench }}" "larastan/larastan:${{ matrix.larastan }}" --no-interaction --no-update
           composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
       - name: PHPStan Static Analysis
